@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">TransformerTracker</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="tab_text_1">Map</string>
+    <string name="tab_text_2">Details</string>
+
+    <string name="required">Required</string>
+
+    <string-array name="ratings">
+        <item>15MVA</item>
+        <item>7.5MVA</item>
+        <item>1MVA</item>
+        <item>500KVA</item>
+        <item>300KVA</item>
+        <item>50KVA</item>
+        <item>1KVA</item>
+        <item>200KVA</item>
+        <item>100KVA</item>
+    </string-array>
+
+    <string-array name="voltage">
+        <item>33/11KV</item>
+        <item>33/0.415KV</item>
+        <item>11/0.415KV</item>
+        <item>33KV</item>
+        <item>11kKV</item>
+    </string-array>
+
+    <string-array name="agbarafeeder">
+        <item>AGBARA INJ/TCN</item>
+        <item>OLD BADAGRY 33KV</item>
+        <item>BADAGRY EXPRESS 33KV</item>
+        <item>AGBARA 33KV</item>
+        <item>OKO-AFO 33KV</item>
+        <item>SHAGAMU 11KV</item>
+        <item>ESTATE 11KV</item>
+        <item>IJURI 11KV</item>
+        <item>OTO-AWORI 11KV</item>
+        <item>OPIC 11KV</item>
+        <item>BADAGRY 11KV</item>
+        <item>AJARA 11KV</item>
+    </string-array>
+
+    <string-array name="category">
+        <item>Public</item>
+        <item>Private</item>
+    </string-array>
+
+    <string name="agbara">AGBARA</string>
+    <string name="ayetoro">AYETORO</string>
+    <string name="oko_afo">OKO-AFO</string>
+    <string name="badagry">BADAGRY</string>
+    <string name="igborosun">IGBOROSUN</string>
+    <string name="aradagun">ARADAGUN</string>
+    <string name="status">status</string>
+    <string name="save_menu">save</string>
+    <string name="email_sub">Transformer Details</string>
+
+    <string-array name="agbaraZones">
+        <item>@string/agbara</item>
+        <item>@string/oko_afo</item>
+        <item>@string/ayetoro</item>
+        <item>@string/aradagun</item>
+        <item>@string/igborosun</item>
+        <item>@string/badagry</item>
+    </string-array>
+
+
+
+</resources>
