@@ -1,5 +1,6 @@
 package com.example.transformertracker.recycler;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.transformertracker.R;
+import com.example.transformertracker.activities.DetailsActivity;
 import com.example.transformertracker.model.Transformer;
 
 import java.util.ArrayList;
@@ -18,6 +20,7 @@ import java.util.List;
 public class MyClockAdapter extends RecyclerView.Adapter<MyClockAdapter.ClockViewHolder> {
 
     List<Transformer> mItems = new ArrayList<>();
+    public static final String ARG_BUNDLE = "com.example.transformertracker.recycler.transformer";
 //    private final Handler mHandler = new Handler();
 
     @NonNull
@@ -36,7 +39,7 @@ public class MyClockAdapter extends RecyclerView.Adapter<MyClockAdapter.ClockVie
        holder.feeder.setText(model.feeder);
        holder.brand.setText(model.brand);
 
-//        holder.itemView.setOnClickListener(view -> holder.gotoClockActivity(model));
+        holder.itemView.setOnClickListener(view -> holder.gotoClockActivity(model));
 
     }
 
@@ -73,12 +76,12 @@ public class MyClockAdapter extends RecyclerView.Adapter<MyClockAdapter.ClockVie
 
         }
 
-//        public void gotoClockActivity(Transformer details){
-//            Intent intent = new Intent(itemView.getContext(), DisplayActivity.class);
-//            intent.putExtra(Constants.ACTIVITY_BUNDLE, details);
-//            itemView.getContext().startActivity(intent);
-//
-//        }
+        public void gotoClockActivity(Transformer details){
+            Intent intent = new Intent(itemView.getContext(), DetailsActivity.class);
+            intent.putExtra(ARG_BUNDLE, details);
+            itemView.getContext().startActivity(intent);
+
+        }
     }
 
 

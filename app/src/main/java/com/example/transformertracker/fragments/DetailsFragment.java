@@ -44,7 +44,7 @@ public class DetailsFragment extends Fragment{
     private View mView;
     private long mLastFetchedDataTimeStamp;
     private LinearLayoutManager mLm;
-    private GridLayoutManager mMZoneLayout;
+    private LinearLayoutManager mMZoneLayout;
     private boolean status = false;
     private ZoneAdapter mZoneAdapter;
     private FloatingActionButton mFab;
@@ -98,9 +98,10 @@ public class DetailsFragment extends Fragment{
 
     private void initialize(){
         mFab.setVisibility(View.GONE);
-        mMZoneLayout = new GridLayoutManager(getActivity(), 3);
+        mMZoneLayout = new LinearLayoutManager(getActivity());
 //        mAdapter = null;
         recView.setLayoutManager(mMZoneLayout);
+        mMZoneLayout.setOrientation(LinearLayoutManager.VERTICAL);
         mZoneAdapter = new ZoneAdapter(getActivity());
         recView.setAdapter(mZoneAdapter);
         LiveData<List<Zones>> znList = Services.getInstance(getActivity()).getZoneDetails();

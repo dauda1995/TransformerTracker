@@ -367,6 +367,7 @@ public class AddUtility extends DialogFragment implements AdapterView.OnItemSele
     public void onButtonPressed() {
         if (mListener != null) {
 //            mListener.onFragmentInteraction(entry);
+            Log.d(TAG, "onButtonPressed: ");
         }
     }
 

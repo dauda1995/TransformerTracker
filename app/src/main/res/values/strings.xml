@@ -53,8 +53,11 @@
     <string name="igborosun">IGBOROSUN</string>
     <string name="aradagun">ARADAGUN</string>
     <string name="status">status</string>
-    <string name="save_menu">save</string>
+    <string name="save_menu">Share Data</string>
     <string name="email_sub">Transformer Details</string>
+    <string name="load_readings">Load data</string>
+    <string name="meter_data">Metering data</string>
+    <string name="fault_records">Fault records</string>
 
     <string-array name="agbaraZones">
         <item>@string/agbara</item>
@@ -64,7 +67,6 @@
         <item>@string/igborosun</item>
         <item>@string/badagry</item>
     </string-array>
-
 
 
 </resources>

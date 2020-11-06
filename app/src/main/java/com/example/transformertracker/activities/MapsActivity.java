@@ -1,4 +1,4 @@
-package com.example.transformertracker;
+package com.example.transformertracker.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -15,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
 
+import com.example.transformertracker.R;
 import com.example.transformertracker.services.Services;
 import com.example.transformertracker.view.SectionsPagerAdapter;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -33,6 +34,7 @@ public class MapsActivity extends AppCompatActivity {
 
     private GoogleMap mMap;
     private LiveData<String> res;
+    private static final String TAG = "MapsActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,7 @@ public class MapsActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.savexlc ){
+            Log.d(TAG, "onOptionsItemSelected: export");
             Services.getInstance(getApplicationContext()).exportAsExcel();
             res= Services.getInstance(getApplicationContext()).mExportResult;
             res.observe(this, results ->{

@@ -1,17 +1,23 @@
 package com.example.transformertracker.services;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.arch.core.util.Function;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.CursorLoader;
+import androidx.loader.content.Loader;
 
 import com.ajts.androidmads.library.SQLiteToExcel;
 import com.example.transformertracker.db.DBHelper;
@@ -35,7 +41,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class Services extends ViewModel {
+public class Services {
     private static Services ourInstance = null;
     private static final DatabaseReference mref = FirebaseDatabase.getInstance().getReference();
     private static final String assetlist = "assets";
@@ -67,6 +73,11 @@ public class Services extends ViewModel {
         return ourInstance;
     }
 
+    public void onclose() {
+        dbQueries.close();
+
+    }
+
     private Services() {
         File file = new File(directory_path);
         if (!file.exists()) {
@@ -79,6 +90,7 @@ public class Services extends ViewModel {
     public void submitDetails(Transformer transformer, Uri filePath){
         dbQueries.open();
         dbQueries.insertUser(transformer);
+        onclose();
         String uuid = UUID.randomUUID().toString();
         transformer.imageUri = uuid;
 
@@ -149,7 +161,7 @@ public class Services extends ViewModel {
         sqliteToExcel.exportAllTables(fileName, new SQLiteToExcel.ExportListener() {
             @Override
             public void onStart() {
-
+                Log.d(TAG, "onStart: start exporting...");
             }
 
             @Override

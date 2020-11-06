@@ -60,6 +60,7 @@ public class MapFragments extends Fragment implements OnMapReadyCallback, AddUti
     private LatLngBounds.Builder builder = new LatLngBounds.Builder();
     private LatLng mLatLng;
     private int mZoom;
+    private TextView mPos;
 
 
     public static MapFragments newInstance() {
@@ -115,6 +116,7 @@ public class MapFragments extends Fragment implements OnMapReadyCallback, AddUti
         mapFragment = (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         mFloatingActionButton = root.findViewById(R.id.fab_clock1);
+        mPos = root.findViewById(R.id.pos);
         FloatingActionButton trrain_fbtn = root.findViewById(R.id.terrain);
         FloatingActionButton zonebtn = root.findViewById(R.id.categoryS);
 //        trrain_fbtn.setOnClickListener();
@@ -157,7 +159,7 @@ public class MapFragments extends Fragment implements OnMapReadyCallback, AddUti
 //        int color = new Random().nextInt(360);
         Log.d(TAG, "setMarkerProperties: something marker");
         mZoom = 50;
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,20));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 10));
          Marker marker = mMap.addMarker(new MarkerOptions()
                 .position(latLng)
                 .title(checkName)
@@ -236,6 +238,7 @@ public class MapFragments extends Fragment implements OnMapReadyCallback, AddUti
         }
     }
 
+
     private FusedLocationProviderClient mFusedLocationClient;
     private GoogleApiClient mGoogleApiClient;
     private LocationRequest mLocationRequest;
@@ -246,6 +249,7 @@ public class MapFragments extends Fragment implements OnMapReadyCallback, AddUti
             for (Location location : locationResult.getLocations()) {
                 if (location != null) {
                     setLatLng(location);
+
 
                     }
                 }
@@ -293,6 +297,7 @@ public class MapFragments extends Fragment implements OnMapReadyCallback, AddUti
     public void setLatLng(Location location){
         LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         this.mLatLng = latLng;
+        mPos.setText("Latitude: " + latLng.latitude + " Longitude: " + latLng.longitude);
     }
 
     public LatLng getLatlng(){

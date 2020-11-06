@@ -61,6 +61,7 @@
     <style name="fabStandard" parent="Widget.Design.FloatingActionButton">
         <item name="backgroundTint">@color/colorWhite</item>
 
+
     </style>
 
     <style name="NewDialog" parent="android:Theme.Dialog">
